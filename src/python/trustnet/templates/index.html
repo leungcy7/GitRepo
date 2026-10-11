@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f3f5ef">
+    <title>Fund Performance Leaders | Trustnet</title>
+    <link rel="stylesheet" href="/static/styles.css">
+    <script src="/static/app.js" defer></script>
+</head>
+<body>
+    <header class="topbar">
+        <a class="brand" href="/" aria-label="Fund Performance Leaders home">
+            <span class="brand-mark" aria-hidden="true">T</span>
+            <span>Fund Monitor</span>
+        </a>
+        <span class="source-label">TRUSTNET DATA</span>
+    </header>
+
+    <main class="page-shell">
+        <section class="page-heading" aria-labelledby="page-title">
+            <div>
+                <p class="eyebrow">IA UNIT TRUSTS &amp; OEICS</p>
+                <h1 id="page-title">Fund performance leaders</h1>
+                <p class="intro">Top 50 funds by Trustnet's reported return for the selected period.</p>
+            </div>
+            <div class="heading-actions">
+                <label class="period-control">
+                    <span>Rank by</span>
+                    <select id="period-select" aria-label="Rank funds by period">
+                        <option value="1y">1 year</option>
+                        <option value="3y">3 years</option>
+                        <option value="5y" selected>5 years</option>
+                    </select>
+                </label>
+                <label class="period-control">
+                    <span>Fund style</span>
+                    <select id="management-select" aria-label="Filter by fund style">
+                        <option value="active">Active</option>
+                        <option value="passive">Passive</option>
+                        <option value="all" selected>All</option>
+                    </select>
+                </label>
+                <button id="refresh-button" class="refresh-button" type="button">
+                    <span aria-hidden="true">&#8635;</span>
+                    Refresh
+                </button>
+            </div>
+        </section>
+
+        <section class="data-meta" aria-label="Data status">
+            <div class="meta-item">
+                <span class="meta-label">Ranked on</span>
+                <strong id="ranked-on">5-year return (%)</strong>
+            </div>
+            <div class="meta-item">
+                <span class="meta-label">Coverage</span>
+                <strong>Unit trusts &amp; OEICs</strong>
+            </div>
+            <div class="meta-item meta-updated">
+                <span class="meta-label">Retrieved</span>
+                <strong id="updated-at">Not loaded</strong>
+            </div>
+        </section>
+
+        <div id="status" class="status" role="status" aria-live="polite">Loading Trustnet performance data...</div>
+
+        <div class="table-frame">
+            <table>
+                <thead>
+                    <tr>
+                        <th class="rank-col" scope="col">#</th>
+                        <th scope="col">Fund</th>
+                        <th class="asset-col" scope="col">Asset</th>
+                        <th class="style-col" scope="col">Style*</th>
+                        <th class="return-col" scope="col" data-return-period="1y">1 year</th>
+                        <th class="return-col" scope="col" data-return-period="3y">3 years</th>
+                        <th class="return-col primary-col" scope="col" data-return-period="5y">5 years</th>
+                    </tr>
+                </thead>
+                <tbody id="fund-rows">
+                    <tr><td class="empty-state" colspan="7">Connecting to Trustnet...</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <footer class="page-footer">
+            <p>Source: <a href="https://www.trustnet.com/fund/price-performance/o/ia-unit-trusts-and-oeics" target="_blank" rel="noopener noreferrer">Trustnet IA Unit Trusts &amp; OEICs performance table</a>. ETF-labelled names are excluded. *Active/passive style is estimated from names (for example, “Index” or “Tracker”) and may be inaccurate.</p>
+            <p>Performance is historical, shown as reported by Trustnet, and is not a guide to future returns or investment advice. Fund values can fall as well as rise. Data is for personal reference; see <a href="https://www.trustnet.com/information/terms-of-use/" target="_blank" rel="noopener noreferrer">Trustnet's terms of use</a> before copying or sharing it.</p>
+        </footer>
+    </main>
+</body>
+</html>
